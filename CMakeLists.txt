@@ -7,8 +7,8 @@ include_directories(inc)
 add_executable(${PROJECT_NAME} src/main.cpp)
 
 add_library(
-    nodes 
+    nodelib
     src/gameEngine.cpp
     )
     
-target_link_libraries(${PROJECT_NAME} nodes sfml-system sfml-window sfml-graphics sfml-network sfml-audio)
+target_link_libraries(${PROJECT_NAME} nodelib sfml-system sfml-window sfml-graphics sfml-network sfml-audio)
