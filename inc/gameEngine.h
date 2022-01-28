@@ -1,7 +1,10 @@
 #ifndef GAME_H
-#define GAME__H
+#define GAME_H
 
 #include <SFML/Graphics.hpp>
+#include <canvas.h>
+
+class canvas;
 
 class gameEngine {
 private:
@@ -9,6 +12,9 @@ private:
     sf::RenderWindow *window;
     sf::VideoMode videoMode;
     sf::Event event;
+
+    // Child Classes
+    canvas *drawArea;
 
     // Initialization of variables to null
     void initVariables();

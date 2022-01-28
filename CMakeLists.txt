@@ -11,6 +11,7 @@ find_package(SFML 2.5 COMPONENTS graphics REQUIRED)
 add_library(
     nodelib
     src/gameEngine.cpp
+    src/canvas.cpp
     )
     
 target_link_libraries(${PROJECT_NAME} nodelib sfml-system sfml-window sfml-graphics sfml-network sfml-audio)

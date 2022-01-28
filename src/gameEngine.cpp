@@ -3,6 +3,7 @@
 // Private Functions
 void gameEngine::initVariables(){
     this->window = nullptr;
+    this->drawArea = new canvas();
 }
 
 void gameEngine::initWindow(int width, int height){
@@ -18,6 +19,7 @@ gameEngine::gameEngine(int height, int width){
 
 gameEngine::~gameEngine() {
     delete this->window;
+    delete this->drawArea;
 }
 
 bool gameEngine::isRunning(){
@@ -40,6 +42,7 @@ void gameEngine::processEvent(){
 }
 
 void gameEngine::renderScreen(){
-    this->window->clear(sf::Color(0,0,255,255));
-    this->window->display();
+    this->window->clear(sf::Color(0,0,155,255));
+    this->drawArea->drawCanvas(this->window);
+    window->display();
 }
