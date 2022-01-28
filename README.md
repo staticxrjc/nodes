@@ -1,2 +1,4 @@
-# nodes
-Playing with nodes and paths
+# Yahtzee
+Attempted clone of yahtzee, hotseet
+
+## First Header
