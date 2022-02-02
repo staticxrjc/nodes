@@ -3,7 +3,7 @@
 // Private Functions
 void gameEngine::initVariables(){
     this->window = nullptr;
-    this->drawArea = new canvas();
+    this->drawArea = new canvas(10,10,500,500);
 }
 
 void gameEngine::initWindow(int width, int height){

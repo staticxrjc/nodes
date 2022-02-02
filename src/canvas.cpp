@@ -41,4 +41,17 @@ void canvas::drawCanvas(sf::RenderWindow* window) {
     quad[3].color = canvasBackgroundColor;
     
     window->draw(quad);
+
+    // spacing is the distance between grid points
+    int spacing = 10;
+
+    // Draw Grid for canvas
+    for (int i = spacing/2; i < width; i = i+spacing) {
+        for (int j = spacing/2; j < height; j = j+spacing) {
+            sf::CircleShape shape(.5f);
+            shape.setFillColor(sf::Color(147,147,147));
+            shape.setPosition(i + topLeftX, j + topLeftY);
+            window->draw(shape);
+        }
+    }
 }
