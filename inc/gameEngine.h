@@ -9,12 +9,12 @@ class canvas;
 class gameEngine {
 private:
     // SF Variables
-    sf::RenderWindow *window;
+    sf::RenderWindow *window{};
     sf::VideoMode videoMode;
-    sf::Event event;
+    sf::Event event{};
 
     // Child Classes
-    canvas *drawArea;
+    canvas *drawArea{};
 
     // Initialization of variables to null
     void initVariables();
@@ -23,7 +23,7 @@ private:
     void initWindow(int, int);
 
 public:
-    gameEngine(int = 800, int = 600);
+    explicit gameEngine(int = 800, int = 600);
     ~gameEngine();
     bool isRunning();
     bool gameEvent();

@@ -23,26 +23,41 @@ gameEngine::~gameEngine() {
 }
 
 bool gameEngine::isRunning(){
-    return this->window->isOpen();
+    if (this->window)
+        return this->window->isOpen();
+    else
+        return false;
 }
 
 void gameEngine::processEvent(){
-    while (this->window->pollEvent(event))
-    {
-        switch (event.type) {
-            case sf::Event::Closed:
-                this->window->close();
-                break;
-            case sf::Event::KeyPressed:
-                if (event.key.code == sf::Keyboard::Escape)
-                    window->close();
-                break;
-        }
+    if(this->window) {
+        while (this->window->pollEvent(event))
+            switch (event.type) {
+                case sf::Event::Closed:
+                    this->window->close();
+                    break;
+                case sf::Event::KeyPressed:
+                    if (event.key.code == sf::Keyboard::Escape)
+                        window->close();
+                    break;
+            }
+    }
+    else {
+        std::cout << "Window is undefined!\n";
     }
 }
 
 void gameEngine::renderScreen(){
-    this->window->clear(sf::Color(0,0,155,255));
-    this->drawArea->drawCanvas(this->window);
-    window->display();
+    if(this->window && this->drawArea) {
+        this->window->clear(sf::Color(0,0,155,255));
+        this->drawArea->drawCanvas(this->window);
+        window->display();
+    }
+    else {
+        std::cout << "Window or DrawArea undefined\n";
+    }
+}
+
+bool gameEngine::gameEvent() {
+    return false;
 }
