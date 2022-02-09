@@ -44,3 +44,4 @@ CTestTestfile.cmake
 _deps
 
 build/
+cmake-build-debug-visual-studio/
