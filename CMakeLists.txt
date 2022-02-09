@@ -9,9 +9,9 @@ set(SFML_DIR "C:\\sdks\\SFML-2.5.1\\lib\\cmake\\SFML")
 find_package(SFML 2.5 COMPONENTS graphics REQUIRED)
 
 add_library(
-    nodelib
+    nodeLib
     src/gameEngine.cpp
     src/canvas.cpp
     )
     
-target_link_libraries(${PROJECT_NAME} nodelib sfml-system sfml-window sfml-graphics sfml-network sfml-audio)
+target_link_libraries(${PROJECT_NAME} nodeLib sfml-system sfml-window sfml-graphics sfml-network sfml-audio)
