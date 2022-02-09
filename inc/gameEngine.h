@@ -26,7 +26,6 @@ public:
     explicit gameEngine(int = 800, int = 600);
     ~gameEngine();
     bool isRunning();
-    bool gameEvent();
     void processEvent();
     void renderScreen();
 };

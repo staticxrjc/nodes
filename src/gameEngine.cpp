@@ -40,6 +40,8 @@ void gameEngine::processEvent(){
                     if (event.key.code == sf::Keyboard::Escape)
                         window->close();
                     break;
+                default:
+                    break;
             }
     }
     else {
@@ -56,8 +58,4 @@ void gameEngine::renderScreen(){
     else {
         std::cout << "Window or DrawArea undefined\n";
     }
-}
-
-bool gameEngine::gameEvent() {
-    return false;
 }
