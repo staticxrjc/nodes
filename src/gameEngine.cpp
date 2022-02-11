@@ -1,7 +1,9 @@
 #include <gameEngine.h>
 
 // Private Functions
-void gameEngine::initVariables(){
+void gameEngine::initVariables(int width, int height){
+    mHeight = height;
+    mWidth = width;
     this->window = nullptr;
     this->drawArea = new canvas(10,10,500,500);
 }
@@ -13,7 +15,7 @@ void gameEngine::initWindow(int width, int height){
 }
 
 gameEngine::gameEngine(int height, int width){
-    initVariables();
+    initVariables(width, height);
     initWindow(width, height);
 }
 
@@ -30,6 +32,8 @@ bool gameEngine::isRunning(){
 }
 
 void gameEngine::processEvent(){
+    float heightA;
+    float widthA;
     if(this->window) {
         while (this->window->pollEvent(event))
             switch (event.type) {
@@ -39,6 +43,14 @@ void gameEngine::processEvent(){
                 case sf::Event::KeyPressed:
                     if (event.key.code == sf::Keyboard::Escape)
                         window->close();
+                    break;
+                case sf::Event::Resized:
+                    std::cout << "Window Resized\n"
+                                 "Redraw Canvas\n";
+                    widthA = float(mWidth) / float(this->window->getSize().x);
+                    heightA = float(mHeight) / float(this->window->getSize().y);
+                    delete this->drawArea;
+                    this->drawArea = new canvas(10*widthA,10*heightA,500*widthA,500*heightA);
                     break;
                 default:
                     break;

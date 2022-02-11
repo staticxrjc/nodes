@@ -9,14 +9,14 @@ class gameEngine;
 class canvas {
 private: 
     // Conviguration of Canvas elements
-    int width, height;
-    int topLeftX, topLeftY;
+    float width, height;
+    float topLeftX, topLeftY;
     int borderThickness;
     sf::Color borderColor;
     sf::Color canvasBackgroundColor;
 
 public:
-    canvas(int = 0, int = 0, int = 200, int = 200, int = 1);
+    explicit canvas(float = 0, float = 0, float = 200.0f, float = 200.0f, int = 1);
     ~canvas();
     void drawCanvas(sf::RenderWindow*);
 };

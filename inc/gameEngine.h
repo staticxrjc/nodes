@@ -13,11 +13,14 @@ private:
     sf::VideoMode videoMode;
     sf::Event event{};
 
+    // Configuration Variables
+    int mHeight, mWidth;
+
     // Child Classes
     canvas *drawArea{};
 
     // Initialization of variables to null
-    void initVariables();
+    void initVariables(int,int);
 
     // Initialize Window
     void initWindow(int, int);

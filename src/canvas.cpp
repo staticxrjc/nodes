@@ -1,6 +1,6 @@
 #include <canvas.h>
 
-canvas::canvas(int x, int y, int width, int height, int border) {
+canvas::canvas(float x, float y, float width, float height, int border) {
     this->width = width;
     this->height = height;
     this->topLeftX = x;
@@ -15,7 +15,6 @@ canvas::~canvas() {
 }
 
 void canvas::drawCanvas(sf::RenderWindow* window) {
-    std::cout << "Drawing Canvas!\n";
     // Draw Canvas Border
     // create a quad
     sf::VertexArray quad(sf::Quads, 4);
