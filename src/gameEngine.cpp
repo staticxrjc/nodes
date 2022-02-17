@@ -49,8 +49,11 @@ void gameEngine::processEvent(){
                                  "Redraw Canvas\n";
                     widthA = float(mWidth) / float(this->window->getSize().x);
                     heightA = float(mHeight) / float(this->window->getSize().y);
+                    std::cout << "widthA: " << widthA << std::endl;
+                    std::cout << "heightA: " << heightA << std::endl;
                     delete this->drawArea;
                     this->drawArea = new canvas(10*widthA,10*heightA,500*widthA,500*heightA);
+                    this->drawArea->setGridSpacing(10*widthA, 10*heightA);
                     break;
                 default:
                     break;

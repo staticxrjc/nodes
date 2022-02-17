@@ -1,6 +1,8 @@
 #include <canvas.h>
 
-canvas::canvas(float x, float y, float width, float height, int border) {
+canvas::canvas(float x, float y, float width, float height, float border) {
+    this->mVerticalSpacing = 10.0f;
+    this->mHorizontalSpacing = 10.0f;
     this->width = width;
     this->height = height;
     this->topLeftX = x;
@@ -41,16 +43,18 @@ void canvas::drawCanvas(sf::RenderWindow* window) {
     
     window->draw(quad);
 
-    // spacing is the distance between grid points
-    int spacing = 10;
-
     // Draw Grid for canvas
-    for (int i = spacing/2; i < width; i = i+spacing) {
-        for (int j = spacing/2; j < height; j = j+spacing) {
-            sf::CircleShape shape(.5f);
+    for (float i = mHorizontalSpacing/2; i < width; i = i+mHorizontalSpacing) {
+        for (float j = mVerticalSpacing/2; j < height; j = j+mVerticalSpacing) {
+            sf::CircleShape shape(.3f);
             shape.setFillColor(sf::Color(147,147,147));
             shape.setPosition(i + topLeftX, j + topLeftY);
             window->draw(shape);
         }
     }
+}
+
+void canvas::setGridSpacing(float horizontal, float vertical) {
+    mHorizontalSpacing = horizontal;
+    mVerticalSpacing = vertical;
 }

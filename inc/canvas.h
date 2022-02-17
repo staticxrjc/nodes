@@ -11,13 +11,15 @@ private:
     // Conviguration of Canvas elements
     float width, height;
     float topLeftX, topLeftY;
-    int borderThickness;
+    float mHorizontalSpacing, mVerticalSpacing;
+    float borderThickness;
     sf::Color borderColor;
     sf::Color canvasBackgroundColor;
 
 public:
-    explicit canvas(float = 0, float = 0, float = 200.0f, float = 200.0f, int = 1);
+    explicit canvas(float = 0, float = 0, float = 200.0f, float = 200.0f, float = 1.0f);
     ~canvas();
     void drawCanvas(sf::RenderWindow*);
+    void setGridSpacing(float, float);
 };
 #endif
