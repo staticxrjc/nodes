@@ -2,10 +2,10 @@
 
 // Private Functions
 void gameEngine::initVariables(int width, int height){
-    mHeight = height;
-    mWidth = width;
+    this->mHeight = height;
+    this->mWidth = width;
     this->window = nullptr;
-    this->drawArea = new canvas(10,10,500,500);
+    this->drawArea = new canvas(10,10,780,780);
 }
 
 void gameEngine::initWindow(int width, int height){

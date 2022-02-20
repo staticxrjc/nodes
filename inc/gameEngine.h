@@ -26,7 +26,7 @@ private:
     void initWindow(int, int);
 
 public:
-    explicit gameEngine(int = 800, int = 600);
+    explicit gameEngine(int = 800, int = 800);
     ~gameEngine();
     bool isRunning();
     void processEvent();
