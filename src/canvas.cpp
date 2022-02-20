@@ -42,16 +42,6 @@ void canvas::drawCanvas(sf::RenderWindow* window) {
     quad[3].color = canvasBackgroundColor;
     
     window->draw(quad);
-
-    // Draw Grid for canvas
-    for (float i = mHorizontalSpacing/2; i < width; i = i+mHorizontalSpacing) {
-        for (float j = mVerticalSpacing/2; j < height; j = j+mVerticalSpacing) {
-            sf::CircleShape shape(.3f);
-            shape.setFillColor(sf::Color(147,147,147));
-            shape.setPosition(i + topLeftX, j + topLeftY);
-            window->draw(shape);
-        }
-    }
 }
 
 void canvas::setGridSpacing(float horizontal, float vertical) {

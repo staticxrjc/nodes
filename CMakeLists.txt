@@ -12,6 +12,6 @@ add_library(
     nodeLib
     src/gameEngine.cpp
     src/canvas.cpp
-    )
+        src/nodes.cpp)
     
 target_link_libraries(${PROJECT_NAME} nodeLib sfml-system sfml-window sfml-graphics sfml-network sfml-audio)

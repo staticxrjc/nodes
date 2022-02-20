@@ -22,6 +22,7 @@ gameEngine::gameEngine(int height, int width){
 gameEngine::~gameEngine() {
     delete this->window;
     delete this->drawArea;
+    for (auto &i: this->node) delete i;
 }
 
 bool gameEngine::isRunning(){
@@ -55,6 +56,20 @@ void gameEngine::processEvent(){
                     this->drawArea = new canvas(10*widthA,10*heightA,500*widthA,500*heightA);
                     this->drawArea->setGridSpacing(10*widthA, 10*heightA);
                     break;
+            case sf::Event::MouseButtonPressed:
+                if(event.mouseButton.button == sf::Mouse::Left) {
+                    std::cout << "Button Pressed\n";
+                    std::cout <<"x: " << this->cursorPosition.x << "y: " << this->cursorPosition.y << std::endl;
+                    node.push_back(new nodes(this->cursorPosition.x, this->cursorPosition.y));
+                }
+                if(event.mouseButton.button == sf::Mouse::Right) {
+                    std::cout << "Right Pressed\n";
+                    if(!node.empty()) {
+                        delete node[node.size()-1];
+                        node.pop_back();
+                    }
+                }
+                break;
                 default:
                     break;
             }
@@ -68,9 +83,24 @@ void gameEngine::renderScreen(){
     if(this->window && this->drawArea) {
         this->window->clear(sf::Color(0,0,155,255));
         this->drawArea->drawCanvas(this->window);
+        this->drawCursor();
+        for (auto &i : node) i->drawSelf(*this->window);
         window->display();
     }
     else {
         std::cout << "Window or DrawArea undefined\n";
     }
+}
+
+void gameEngine::update() {
+    if (this->window)
+        this->cursorPosition = sf::Mouse::getPosition(*this->window);
+
+}
+
+void gameEngine::drawCursor() {
+    sf::CircleShape shape(1.0f);
+    shape.setPosition(this->cursorPosition.x, this->cursorPosition.y);
+    shape.setFillColor(sf::Color::Green);
+    window->draw(shape);
 }

@@ -9,6 +9,7 @@ int main()
         game.processEvent();
 
         // Update
+        game.update();
 
         //Render
         game.renderScreen();
